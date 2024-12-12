@@ -1,1 +1,300 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: makeline-service
+  namespace: default
+  uid: 6cad6453-3fad-414e-ab1e-6087719719a2
+  resourceVersion: '21726'
+  generation: 3
+  creationTimestamp: '2024-12-12T20:04:17Z'
+  annotations:
+    deployment.kubernetes.io/revision: '3'
+    kubectl.kubernetes.io/last-applied-configuration: >
+      {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"name":"makeline-service","namespace":"default"},"spec":{"replicas":1,"selector":{"matchLabels":{"app":"makeline-service"}},"template":{"metadata":{"labels":{"app":"makeline-service"}},"spec":{"containers":[{"env":[{"name":"ORDER_QUEUE_URI","value":"amqp://rabbitmq:5672"},{"name":"ORDER_QUEUE_USERNAME","value":"username"},{"name":"ORDER_QUEUE_PASSWORD","value":"password"},{"name":"ORDER_QUEUE_NAME","value":"orders"},{"name":"ORDER_DB_URI","value":"mongodb://mongodb:27017"},{"name":"ORDER_DB_NAME","value":"orderdb"},{"name":"ORDER_DB_COLLECTION_NAME","value":"orders"}],"image":"ramymohamed/makeline-service-l8:latest","livenessProbe":{"failureThreshold":5,"httpGet":{"path":"/health","port":3001},"initialDelaySeconds":3,"periodSeconds":3},"name":"makeline-service","ports":[{"containerPort":3001}],"readinessProbe":{"failureThreshold":3,"httpGet":{"path":"/health","port":3001},"initialDelaySeconds":3,"periodSeconds":5},"resources":{"limits":{"cpu":"5m","memory":"20Mi"},"requests":{"cpu":"1m","memory":"6Mi"}},"startupProbe":{"failureThreshold":10,"httpGet":{"path":"/health","port":3001},"periodSeconds":5}}],"nodeSelector":{"kubernetes.io/os":"linux"}}}}}
+  managedFields:
+    - manager: kubectl-client-side-apply
+      operation: Update
+      apiVersion: apps/v1
+      time: '2024-12-12T20:04:17Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:kubectl.kubernetes.io/last-applied-configuration: {}
+        f:spec:
+          f:progressDeadlineSeconds: {}
+          f:replicas: {}
+          f:revisionHistoryLimit: {}
+          f:selector: {}
+          f:strategy:
+            f:rollingUpdate:
+              .: {}
+              f:maxSurge: {}
+              f:maxUnavailable: {}
+            f:type: {}
+          f:template:
+            f:metadata:
+              f:labels:
+                .: {}
+                f:app: {}
+            f:spec:
+              f:containers:
+                k:{"name":"makeline-service"}:
+                  .: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"ORDER_DB_COLLECTION_NAME"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"ORDER_DB_NAME"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"ORDER_DB_URI"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"ORDER_QUEUE_NAME"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"ORDER_QUEUE_PASSWORD"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"ORDER_QUEUE_URI"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"ORDER_QUEUE_USERNAME"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                  f:imagePullPolicy: {}
+                  f:livenessProbe:
+                    .: {}
+                    f:failureThreshold: {}
+                    f:httpGet:
+                      .: {}
+                      f:path: {}
+                      f:port: {}
+                      f:scheme: {}
+                    f:initialDelaySeconds: {}
+                    f:periodSeconds: {}
+                    f:successThreshold: {}
+                    f:timeoutSeconds: {}
+                  f:name: {}
+                  f:ports:
+                    .: {}
+                    k:{"containerPort":3001,"protocol":"TCP"}:
+                      .: {}
+                      f:containerPort: {}
+                      f:protocol: {}
+                  f:readinessProbe:
+                    .: {}
+                    f:failureThreshold: {}
+                    f:httpGet:
+                      .: {}
+                      f:path: {}
+                      f:port: {}
+                      f:scheme: {}
+                    f:initialDelaySeconds: {}
+                    f:periodSeconds: {}
+                    f:successThreshold: {}
+                    f:timeoutSeconds: {}
+                  f:resources:
+                    .: {}
+                    f:limits:
+                      .: {}
+                      f:cpu: {}
+                      f:memory: {}
+                    f:requests:
+                      .: {}
+                      f:cpu: {}
+                      f:memory: {}
+                  f:startupProbe:
+                    .: {}
+                    f:failureThreshold: {}
+                    f:httpGet:
+                      .: {}
+                      f:path: {}
+                      f:port: {}
+                      f:scheme: {}
+                    f:periodSeconds: {}
+                    f:successThreshold: {}
+                    f:timeoutSeconds: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+              f:dnsPolicy: {}
+              f:nodeSelector: {}
+              f:restartPolicy: {}
+              f:schedulerName: {}
+              f:securityContext: {}
+              f:terminationGracePeriodSeconds: {}
+    - manager: kubectl-rollout
+      operation: Update
+      apiVersion: apps/v1
+      time: '2024-12-12T21:09:20Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:template:
+            f:metadata:
+              f:annotations:
+                .: {}
+                f:kubectl.kubernetes.io/restartedAt: {}
+    - manager: kubectl-set
+      operation: Update
+      apiVersion: apps/v1
+      time: '2024-12-12T21:09:20Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:template:
+            f:spec:
+              f:containers:
+                k:{"name":"makeline-service"}:
+                  f:image: {}
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: apps/v1
+      time: '2024-12-12T21:09:31Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:deployment.kubernetes.io/revision: {}
+        f:status:
+          f:availableReplicas: {}
+          f:conditions:
+            .: {}
+            k:{"type":"Available"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:lastUpdateTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Progressing"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:lastUpdateTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+          f:observedGeneration: {}
+          f:readyReplicas: {}
+          f:replicas: {}
+          f:updatedReplicas: {}
+      subresource: status
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: makeline-service
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: makeline-service
+      annotations:
+        kubectl.kubernetes.io/restartedAt: '2024-12-12T21:09:20Z'
+    spec:
+      containers:
+        - name: makeline-service
+          image: aakashsidhu/makeline-service:latest
+          ports:
+            - containerPort: 3001
+              protocol: TCP
+          env:
+            - name: ORDER_QUEUE_URI
+              value: amqp://rabbitmq:5672
+            - name: ORDER_QUEUE_USERNAME
+              value: username
+            - name: ORDER_QUEUE_PASSWORD
+              value: password
+            - name: ORDER_QUEUE_NAME
+              value: orders
+            - name: ORDER_DB_URI
+              value: mongodb://mongodb:27017
+            - name: ORDER_DB_NAME
+              value: orderdb
+            - name: ORDER_DB_COLLECTION_NAME
+              value: orders
+          resources:
+            limits:
+              cpu: 5m
+              memory: 20Mi
+            requests:
+              cpu: 1m
+              memory: 6Mi
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 3001
+              scheme: HTTP
+            initialDelaySeconds: 3
+            timeoutSeconds: 1
+            periodSeconds: 3
+            successThreshold: 1
+            failureThreshold: 5
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 3001
+              scheme: HTTP
+            initialDelaySeconds: 3
+            timeoutSeconds: 1
+            periodSeconds: 5
+            successThreshold: 1
+            failureThreshold: 3
+          startupProbe:
+            httpGet:
+              path: /health
+              port: 3001
+              scheme: HTTP
+            timeoutSeconds: 1
+            periodSeconds: 5
+            successThreshold: 1
+            failureThreshold: 10
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: Always
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      nodeSelector:
+        kubernetes.io/os: linux
+      securityContext: {}
+      schedulerName: default-scheduler
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
+status:
+  observedGeneration: 3
+  replicas: 1
+  updatedReplicas: 1
+  readyReplicas: 1
+  availableReplicas: 1
+  conditions:
+    - type: Available
+      status: 'True'
+      lastUpdateTime: '2024-12-12T20:05:03Z'
+      lastTransitionTime: '2024-12-12T20:05:03Z'
+      reason: MinimumReplicasAvailable
+      message: Deployment has minimum availability.
+    - type: Progressing
+      status: 'True'
+      lastUpdateTime: '2024-12-12T21:09:31Z'
+      lastTransitionTime: '2024-12-12T20:04:17Z'
+      reason: NewReplicaSetAvailable
+      message: ReplicaSet "makeline-service-795c55d7ff" has successfully progressed.
 
