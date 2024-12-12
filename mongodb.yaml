@@ -1,0 +1,52 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: mongodb
+  namespace: default
+  uid: d91cab07-7f9b-489a-8e8a-d89b8a88eb47
+  resourceVersion: '5404'
+  creationTimestamp: '2024-12-12T20:04:17Z'
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: >
+      {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"mongodb","namespace":"default"},"spec":{"ports":[{"port":27017}],"selector":{"app":"mongodb"},"type":"ClusterIP"}}
+  managedFields:
+    - manager: kubectl-client-side-apply
+      operation: Update
+      apiVersion: v1
+      time: '2024-12-12T20:04:17Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:kubectl.kubernetes.io/last-applied-configuration: {}
+        f:spec:
+          f:internalTrafficPolicy: {}
+          f:ports:
+            .: {}
+            k:{"port":27017,"protocol":"TCP"}:
+              .: {}
+              f:port: {}
+              f:protocol: {}
+              f:targetPort: {}
+          f:selector: {}
+          f:sessionAffinity: {}
+          f:type: {}
+spec:
+  ports:
+    - protocol: TCP
+      port: 27017
+      targetPort: 27017
+  selector:
+    app: mongodb
+  clusterIP: 10.0.176.120
+  clusterIPs:
+    - 10.0.176.120
+  type: ClusterIP
+  sessionAffinity: None
+  ipFamilies:
+    - IPv4
+  ipFamilyPolicy: SingleStack
+  internalTrafficPolicy: Cluster
+status:
+  loadBalancer: {}
